@@ -22,10 +22,15 @@ class customPostMeta{
          */
         add_action('plugin_loaded', array($this,'cbx_plugin_load_text_domain'));
 
+        /**
+         * custom post type action hook with callback 
+         */
+        add_action('init',array($this, 'cbx_custom_postType'));
+
     }//end of constructor
 
     /**
-     * loaded text domain function
+     * loaded text domain callback function
      */
     public function cbx_plugin_load_text_domain(){
 
@@ -38,7 +43,36 @@ class customPostMeta{
             $real_path = dirname(__FILE__) . "/languages" //plugin_rel_path (string) (optional) 
         );//end load text domain
 
-    }//loaded text domain function
+    }//loaded text domain callback function
+
+    /**
+     * custom post type callback function
+     */
+    public function cbx_custom_postType(){
+
+        /**
+         * register post type
+         */
+        $postType_register = register_post_type(
+            $post_type = 'cbx_products',//Post type key. (string) (Required)
+
+            $postType_args = array(
+
+                $labels_name = 'labels' => array(
+
+                    $general_name = 'name' => __('latest products'),//General name for the post type
+                    $nameOf_object = 'singular_name' => __('latest product')//Name of one object for the post type
+
+                ),
+
+                $public_label = 'public' => true,//Default label for this item
+                $archive_label = 'has_archive' => true,//label for nav menus archive
+                $custom_slug = 'rewrite' => array('slug' => 'my_product'),//Custom slug
+            )
+
+        );//end registe post type
+
+    }//end custom post type call back function
 
 }//end of the class
 
