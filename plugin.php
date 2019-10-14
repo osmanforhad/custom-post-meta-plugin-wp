@@ -27,6 +27,11 @@ class customPostMeta{
          */
         add_action('init',array($this, 'cbx_custom_postType'));
 
+        /**
+         * add custom metabox action hook with callback
+         */
+        add_action('admin_menu', array($this, 'cbx_add_custom_metabox'));
+
     }//end of constructor
 
     /**
@@ -73,6 +78,33 @@ class customPostMeta{
         );//end registe post type
 
     }//end custom post type call back function
+
+    /**
+     * custom metabox add callback function
+     */
+    public function cbx_add_custom_metabox(){
+
+          add_meta_box(
+           $metabox_id = 'cbx_metaboxText_Fields',//Unique id
+
+          $Metabox_name =   __('Custom Meta Box Text Fields',//Meta box name 
+           $plugin_textDomain =  'custom-post-meta-plug'),//text domain of plugin
+
+           $renderCallback =  array($this, 'Displaycbx_custompostType_with_customMeta'),//for render html field callback
+
+           $customPost_typeName = array('cbx_products')//Post type key. (string) (Required)
+        );
+        //write_log($test);
+
+    }//end custom metabox add callback function
+
+    /**
+     * display or rendaring metabox callback function through the post param
+     * @param $post
+     */
+    public function Displaycbx_custompostType_with_customMeta($post){
+   
+    }
 
 }//end of the class
 
