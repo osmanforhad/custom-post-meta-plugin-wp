@@ -84,7 +84,10 @@ class customPostMeta{
      */
     public function cbx_add_custom_metabox(){
 
-          add_meta_box(
+        /**
+         * custom metabox for text option
+         */
+          $metbox_textField = add_meta_box(
            $metabox_id = 'cbx_metaboxText_Fields',//Unique id
 
           $Metabox_name =   __('Custom Meta Box Text Fields',//Meta box name 
@@ -93,8 +96,9 @@ class customPostMeta{
            $renderCallback =  array($this, 'Displaycbx_custompostType_with_customMeta'),//for render html field callback
 
            $customPost_typeName = array('cbx_products')//Post type key. (string) (Required)
-        );
-        //write_log($test);
+        );//end metabox for text option
+        
+        //write_log($metbox_textField );
 
     }//end custom metabox add callback function
 
