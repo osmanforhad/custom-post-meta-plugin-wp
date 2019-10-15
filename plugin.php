@@ -212,6 +212,12 @@ class customPostMeta{
             $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
         );//end multi checkbox label
 
+        $radioCheck_label = __(//radio check label
+
+            $field_name = 'Radio Check Field',//field Name (string) (Required)
+            $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
+        );//end radio check label
+
 
           /**
          * end metafield label
@@ -246,14 +252,14 @@ class customPostMeta{
 
         <!--html for datepicker field-->
         <p>
-        <label for="password_field"><?php echo $datepicker_label; ?>:</label>
+        <label for="datepicker_field"><?php echo $datepicker_label; ?>:</label>
         <input type ="text" name="cbx_meta[cbx_metabox_date]" id="cbx_metabox_date" value="" placeholder="mm/dd/yy">
         </p> <!--end html datepicker field-->
         <br>
 
           <!--html for singleCheck box field-->
           <p>
-        <label for="password_field"><?php echo $sinagleCheck_label; ?>:</label>
+        <label for="singleCheckBox_field"><?php echo $sinagleCheck_label; ?>:</label>
         <input type="checkbox" name="" id="" value="">
         </p> <!--end html singleCheck box field-->
         <br>
@@ -262,9 +268,9 @@ class customPostMeta{
         <p>
         <label for="multiCheckBox_field"><?php echo $multiCheck_label; ?>:</label>
 
-        <!--php scrpt for generrate programetically multicheck box-->
+        <!--php scrpt for generrate programetically multicheck box label and radio label-->
         <?php
-        $fruits = [ //assiume element of multicheck as fruits name
+        $fruits = [ //assume element of multicheck and radio as fruits name
             'apple',
             'banana',
             'Zackfruit',
@@ -289,6 +295,31 @@ class customPostMeta{
         ?>
         
         </p> <!--end html multiCheck box field-->
+        <br>
+
+         <!--html for radioCheck field-->
+         <p>
+        <label for=""><?php echo $radioCheck_label; ?>:</label>
+
+        <!--php scrpt for generrate programetically radioicheck box-->
+        <?php
+        /**
+         * looping for radio check box and label data
+         */
+        foreach($fruits as $key => $fruit){
+
+            $ConvertfruitChar_upperCase = ucwords($fruit);//Converting every first charater in uppercase
+            $radioCheck_labelProgrametic = $ConvertfruitChar_upperCase;//catech upparecase converted data into $radioCheck_labelProgrametic
+
+            ?>
+            <label for="prgrameticRadio_label"><?php echo $radioCheck_labelProgrametic;?></label>
+            <input type="radio" name="name" id="" value="">
+            <?php
+        }//end of the loop
+        
+        ?>
+        
+        </p> <!--end html radioCheck box field-->
         <br>
 
         <?php
