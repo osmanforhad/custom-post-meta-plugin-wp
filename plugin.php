@@ -224,6 +224,12 @@ class customPostMeta{
             $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
         );//end singleSelect label
 
+        $multiSelect_label = __(//multiSelect label
+
+            $field_name = 'Multi Select Field',//field Name (string) (Required)
+            $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
+        );//end multiSelect label
+
 
           /**
          * end metafield label
@@ -276,7 +282,7 @@ class customPostMeta{
 
         <!--php scrpt for generrate programetically multicheck box label and radio label-->
         <?php
-        $fruits = [ //assume element of multicheck and radio as fruits name
+        $fruits = [ //assume element of multicheck, radio, singleSelect, multiSelect as fruits name
             'apple',
             'banana',
             'Zackfruit',
@@ -355,6 +361,35 @@ class customPostMeta{
 			</select>	 
 
         </p> <!--end html singleSelect field-->
+        <br>
+
+        <!--html for multileSelect field-->
+        <p>
+        <label for="multiSelect_label"><?php echo $multiSelect_label; ?>:</label>
+       
+        <select multiple>  
+        <option value="">Select Please</option>
+
+        <?php
+        /**
+         * looping for single select data
+         */
+        foreach($fruits as $key =>$fruit){
+
+            $multiSelect_labelProgrametic = ucwords($fruit);//Converting every first charater in uppercase
+
+            ?>
+             
+				<option value=""><?php echo $multiSelect_labelProgrametic;?></option>
+                
+				
+            <?php
+        }//end of the loop
+        
+        ?>
+			</select>	 
+
+        </p> <!--end html multiSelect field-->
         <br>
 
         <?php
