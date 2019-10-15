@@ -200,6 +200,18 @@ class customPostMeta{
 
         );//end datepicker label
 
+        $sinagleCheck_label = __(//start single checkbox label
+
+            $field_name = 'Single Check Box',//field Name (string) (Required)
+            $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
+        );//end single checkbox label
+
+        $multiCheck_label = __(//start multi checkbox label
+
+            $field_name = 'Multi Check Box',//field Name (string) (Required)
+            $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
+        );//end multi checkbox label
+
 
           /**
          * end metafield label
@@ -237,6 +249,46 @@ class customPostMeta{
         <label for="password_field"><?php echo $datepicker_label; ?>:</label>
         <input type ="text" name="cbx_meta[cbx_metabox_date]" id="cbx_metabox_date" value="" placeholder="mm/dd/yy">
         </p> <!--end html datepicker field-->
+        <br>
+
+          <!--html for singleCheck box field-->
+          <p>
+        <label for="password_field"><?php echo $sinagleCheck_label; ?>:</label>
+        <input type="checkbox" name="" id="" value="">
+        </p> <!--end html singleCheck box field-->
+        <br>
+
+        <!--html for multiCheck box field-->
+        <p>
+        <label for="multiCheckBox_field"><?php echo $multiCheck_label; ?>:</label>
+
+        <!--php scrpt for generrate programetically multicheck box-->
+        <?php
+        $fruits = [ //assiume element of multicheck as fruits name
+            'apple',
+            'banana',
+            'Zackfruit',
+            'coconut',
+            'mango',
+            'Llitchi',   
+        ];
+
+        /**
+         * looping for multipale check box and label data
+         */
+        foreach($fruits as $key => $fruit){
+
+            $ConvertfruitChar_upperCase = ucwords($fruit);//Converting every first charater in uppercase
+            $multiCheckbox_labelProgrametic = $ConvertfruitChar_upperCase;//catech upparecase converted data into $multiCheckbox_labelProgrametic
+
+            ?>
+            <label for="prgrameticMutichck_label"><?php echo $multiCheckbox_labelProgrametic;?></label>
+            <input type="checkbox" name="" id="" value="">
+            <?php
+        }//end of the loop
+        ?>
+        
+        </p> <!--end html multiCheck box field-->
         <br>
 
         <?php
