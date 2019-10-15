@@ -218,6 +218,12 @@ class customPostMeta{
             $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
         );//end radio check label
 
+        $singleSelect_label = __(//singleSelect label
+
+            $field_name = 'Single Select Field',//field Name (string) (Required)
+            $domain_name = 'custom-post-meta-plug'//plugin text domain (optional)
+        );//end singleSelect label
+
 
           /**
          * end metafield label
@@ -318,8 +324,37 @@ class customPostMeta{
         }//end of the loop
         
         ?>
-        
+
         </p> <!--end html radioCheck box field-->
+        <br>
+
+           <!--html for singleSelect field-->
+           <p>
+        <label for="singleSelect_label"><?php echo $singleSelect_label; ?>:</label>
+       
+        <select>  
+        <option value="">Select Please</option>
+
+        <?php
+        /**
+         * looping for single select data
+         */
+        foreach($fruits as $key =>$fruit){
+
+            $singleSelect_labelProgrametic = ucwords($fruit);//Converting every first charater in uppercase
+
+            ?>
+             
+				<option value=""><?php echo $singleSelect_labelProgrametic;?></option>
+                
+				
+            <?php
+        }//end of the loop
+        
+        ?>
+			</select>	 
+
+        </p> <!--end html singleSelect field-->
         <br>
 
         <?php
